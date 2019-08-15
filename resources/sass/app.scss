@@ -1,0 +1,25 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+// style.scss 
+@import '~sweetalert2/src/variables';
+ 
+$swal2-background: #990000;
+ 
+@import '~sweetalert2/src/sweetalert2';
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  .list-anu li {
+    list-style: none;
+  }

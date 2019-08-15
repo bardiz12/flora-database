@@ -1,0 +1,5 @@
+files
+photos
+!public/
+!.gitignore
+*!public/sistem
