@@ -38,8 +38,7 @@
               <h2 class="display-5 text-uppercase">{{alpha.alphabet}}</h2>
               <ul class="pl-4 list-anu">
                 <li v-for="item in alpha.data" v-bind:key="item.id">
-                  <router-link :to="'/browse/' + $route.params.name + '/' + item.scientific_name" v-b-tooltip.html
-        :title="'<div class=\'text-center\'><img src=\''+(item.image ? item.image : '/assets/images/no_picture_hd.jpg')+'\' class=\'d-block img img-thumbnail\'>Nama lokal : <strong>'+item.locale_name+'</strong></div>'">{{ item.scientific_name }}</router-link>
+                  <router-link :to="'/browse/' + $route.params.name + '/' + item.scientific_name">{{ item.scientific_name }}</router-link>
                 </li>
               </ul>
             </div>
@@ -65,7 +64,6 @@ export default {
   },
   methods: {
     readData() {
-      //console.log(this.$route);
       axios.get(url + this.$route.params.name).then(response => {
         this.results = response.data.is_ok ? response.data.result : null;
       });
@@ -73,6 +71,9 @@ export default {
   },
   mounted() {
     this.readData();
+  },
+  created(){
+    document.title += this.$route.params.name
   }
 };
 </script>

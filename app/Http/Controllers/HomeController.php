@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [
+            'totals'=>(Object) [
+                'family' => Family::count()
+            ]
+        ];
+        return view('home',$data);
     }
 }

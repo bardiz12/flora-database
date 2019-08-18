@@ -10,12 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => 'api','middleware'=>'delay'], function () {
-    Route::get('families', 'FrontDataController@families');
-    Route::get('family/{name}','FrontDataController@floraByFamily');
-    Route::get('family/{family_name}/flora/{scientific_name}','FrontDataController@flora');
+/*Route::group(['prefix' => 'api','middleware'=>'delay'], function () {
     
-});
+});*/
 Route::group(['prefix'=>'admin'],function(){
     Route::group(['middleware'=>['auth'],'as'=>'admin.'],function(){
         Route::get('/','AdminController@index')->name('index');

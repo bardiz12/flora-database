@@ -39,7 +39,7 @@ class FamilyController extends Controller
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
             'id'=>'sometimes|integer|exists:family,id',
-            'name'=>'required|string|unique:family,name'
+            'name'=>'required|string|unique:family,name'.($request->input('id') ? ','.$request->input('id') : '')
         ]);
         if($validator->fails()){
             $request->session()->flash('msg', implode("<br/>",$validator->errors()->all()));

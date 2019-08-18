@@ -149,4 +149,10 @@ class FrontDataController extends Controller
             ], 200);
         }
     }
+
+    public function search(Request $request){
+        $validator = Validator::make($request->all(),[
+            'q'=>'required|string'
+        ]);
+    }
 }

@@ -22,13 +22,13 @@
         <carousel :perPage="1" :autoplay="true">
             <template v-if="imgCount > 0">
                 <template v-for="(image,index) in results.images" >
-                <slide v-if="image !== null" v-bind:key="image">
+                <slide v-if="image !== null" v-bind:key="index">
                     <img preview-title-enable="true"
                           preview-nav-enable="true" 
                           v-preview="image" 
                           :key="index" 
                           :src="image" 
-                          class="img img-thumbnail" 
+                          class="img" 
                           style="width:100%!important" />
                 </slide>
                 
@@ -37,7 +37,7 @@
             <template v-else>
             <slide>
                 <img preview-title-enable="true"
-                          preview-nav-enable="true" alt="Image not available" v-preview="'/assets/images/no_picture_hd.jpg'"  src="/assets/images/no_picture_hd.jpg" class="img img-thumbnail" style="width:100%!important" />
+                          preview-nav-enable="true" alt="Image not available" v-preview="'/assets/images/no_picture_hd.jpg'"  src="/assets/images/no_picture_hd.jpg" class="img" style="width:100%!important" />
             </slide>
             </template>
 
@@ -53,13 +53,19 @@
                       <tr>
                             <td>Nama Ilmiah</td>
                             <td style="width:10px">:</td>
-                            <td>{{results.scientific_name}}</td>
+                            <td><i><strong>{{results.scientific_name}}</strong></i></td>
                       </tr>
                       
                       <tr>
                             <td>Nama Lokal</td>
                             <td>:</td>
-                            <td>{{results.locale_name}}</td>
+                            <td><strong>{{results.locale_name}}</strong></td>
+                      </tr>
+                      
+                      <tr>
+                            <td>Family</td>
+                            <td>:</td>
+                            <td><i>{{results.family_name}}</i></td>
                       </tr>
                       
                       <tr>
@@ -109,7 +115,7 @@
       </b-col>
     </b-row>
     <b-row v-else>
-        <h4>Data Tidak tersedia</h4>
+        <h4 class="text-center">Data Tidak tersedia</h4>
     </b-row>
   </b-container>
 </template>
@@ -147,6 +153,8 @@ export default {
   },
   mounted() {
     this.readData();
+  },created(){
+    document.title += this.$route.params.scientific_name + " ("+this.$route.params.name+" Family)"
   }
 };
 </script>

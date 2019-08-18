@@ -22,6 +22,91 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4 class="text-center"><u>Informasi</u></h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            @foreach ($totals as $k => $tot)
+                                            <tr>
+                                                    <td>{{$k}}</td>
+                                                    <td>:</td>
+                                                    <td>{{$tot}}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-8">
+                                <h4 class="text-center"><u>Status Konservasi</u></h4>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <h5>Undang - Undang</h5>
+                                            <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <tbody>
+                                                            <tr>
+                                                                
+                                                                <td>
+                                                                    <i class="fa fa-arrow-right"></i> Dilindungi
+                                                                </td>
+                                                                <td >:</td>
+                                                                <td>{{$status->uu->dilindungi}}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-arrow-right"></i> Tidak Dilindungi</td>
+                                                                <td>:</td>
+                                                                <td>{{$status->uu->tidak_dilindungi}}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5>IUCN</h5>
+                                            <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <tbody>
+                                                            @foreach ($status->iucn as $item)
+                                                            <tr>
+                                                                <td>
+                                                                    <i class="fa fa-arrow-right"></i> {{$item->name}}
+                                                                </td>
+                                                                <td >:</td>
+                                                                <td>{{$item->floraStatusIUCN->count()}}</td>
+                                                            </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <h5>CITES</h5>
+                                                <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <tbody>
+                                                                @foreach ($status->cites as $item)
+                                                                <tr>
+                                                                    <td>
+                                                                        <i class="fa fa-arrow-right"></i> {{$item->name}}
+                                                                    </td>
+                                                                    <td >:</td>
+                                                                    <td>{{$item->floraStatusCites->count()}}</td>
+                                                                </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                        </div>
+                                </div>
+                            </div>
+
+                        </div>
+        
+                        <hr>
                         <div class="row menu-button">
                             <div class="col-md-4 mt-2">
                                 <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal-show-data">

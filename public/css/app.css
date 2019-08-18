@@ -14210,9 +14210,36 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  height: 100%;
 }
 
 .list-anu li {
   list-style: none;
+}
+
+.list-anu a {
+  text-decoration: none;
+}
+
+.list-anu a:hover {
+  color: #355f72;
+}
+
+.search-bar {
+  outline: none;
+  box-shadow: none !important;
+  border: 1px solid #ccc !important;
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+font .searched-term {
+  background: #ffe600;
 }
 

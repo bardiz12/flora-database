@@ -3,8 +3,8 @@
         
         <div class="pembatas"></div>
         <Navbar/>
-        <main role="main" class="flex-shrink-0">
-            <router-view :key="$route.fullPath" class="content-nya"></router-view>
+        <main role="main" class="content-nya">
+            <router-view :key="($route.fullPath.split('#')[0])"></router-view>
         </main>
         <lg-preview></lg-preview>
         <Footer />
@@ -30,8 +30,8 @@
 
 <style>
 .content-nya{
-    min-height: 100%;
-    height: 100%;
+    flex: 1 0 auto;
+    min-height: 700px;
 }
 </style>
 

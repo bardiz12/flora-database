@@ -28,9 +28,9 @@ class Flora extends Model
         return $this->hasOne('App\Model\Family', 'id', 'family_id');
     }
 
-    public function setStatusUuIdAttribute($value){
+    /*public function setStatusUuIdAttribute($value){
         $this->attributes['status_iucn_id'] = $value ? 'Dilindungi' : 'Tidak Dilindungi';
-    }
+    }*/
 
     public function statusIucn()
     {

@@ -7,7 +7,7 @@
     padding-bottom: 20px;
 }
 </style>
-
+@include('admin.family.modal.store')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">

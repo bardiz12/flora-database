@@ -42,7 +42,7 @@ status_cites_id: null*/
             'endemik'=>'string',
             'status_uu_id'=>'boolean|required',
             'status_iucn_id'=>'integer|required|exists:status,id',
-            'status_cites_id'=>'integer|required|exists:status,id',
+            'status_cites_id'=>'integer|required|exists:status,id'
         ]);
 
         if($validator->fails()){
@@ -58,7 +58,7 @@ status_cites_id: null*/
                 $request->session()->flash('msg', 'Berhasil Memperbarui Data');
                 Flora::find($request->input('id'))->update($store);
             }else{
-                $store = $request->except('images');
+                $store = $request->except(['images']);
                 $store['images'] = [];
                 foreach ($request->input('images') as $key => $value) {
                     $store['images'][] = $value !== null ? (str_replace(env('APP_URL'),"",$value)) : null;

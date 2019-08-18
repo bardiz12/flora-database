@@ -14,10 +14,56 @@
         <meta name="csrf-token" content="{{ csrf_token()}}">
 
         <!-- Styles -->
-       
+		<style>
+			#preloader {
+			display: block;
+			transition: all 0.5s ease-in-out;
+			z-index: 1001;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 100%;
+			height: 100%;
+			background: #fff
+		}
+		
+		#preloader img {
+			margin: auto;
+			transition: all 1s ease-in-out;
+			z-index: 1001;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto
+		}
+		
+		.preload div#preloader {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+			background: #333 url(http://files.mimoymima.com/images/loading.gif) no-repeat center center
+		}</style>
+
+		<link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet" />
+		<script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
     </head>
+    
+
     <body class="d-flex flex-column h-100">
-        <div id="app"></div>
+        <div id="app">
+                <div id="preloader">
+                        <img src="https://bardizba.com/themes/bardizba-blog/assets/images/loader.gif " alt="">
+                    </div>
+        </div>
         <script>
         window.api_url ='{{url('')}}/api';
         </script>
