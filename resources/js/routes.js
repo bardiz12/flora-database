@@ -7,6 +7,7 @@ import Browse from '@/js/pages/Browse';
 import BrowseTaxa from '@/js/pages/BrowseTaxa';
 import BrowseFlora from '@/js/pages/BrowseFlora';
 import Search from '@/js/pages/Search';
+import NotFound from '@/js/pages/NotFound';
 
 Vue.use(VueRouter);
 
@@ -52,6 +53,12 @@ const router = new VueRouter({
             name: 'search',
             component: Search,
             meta: { title: SITE_TITLE + ' - Search ' }
+        },
+        {
+            path: '*',
+            name: 'notfound',
+            component: NotFound,
+            meta: { title: SITE_TITLE + ' - Page not found' }
         }
     ]
 });

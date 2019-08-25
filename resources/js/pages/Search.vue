@@ -37,7 +37,8 @@
                       <h5 class="d-block"><i class="scientific_name">{{item.scientific_name}}</i> - <span>{{item.locale_name}}</span></h5>
                       <p class="text-left">
                         <span class="text-muted">Kategori: </span> {{item.kategori}}, 
-                        <span class="text-muted">Endemik: </span> {{item.endemik}},<br/>
+                        <span class="text-muted">Endemik: </span> {{item.endemik}},
+                        <span class="text-muted">Family: </span> {{item.family}},<br/>
                       </p>
                     </div>
                   </div>

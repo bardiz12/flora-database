@@ -56,6 +56,7 @@ class seedTableFlora extends Seeder
                 $flora->kategori_id = Kategori::where('name', $col[3])->first()->id;
                 $flora->endemik = '-';
                 $flora->images = [null,null,null,null,null];
+                $flora->alt_text = [null,null,null,null,null];
                 $flora->status_uu_id = (!in_array(strtolower($col[5]), ['-', 'tidak dilindungi']));
                 $flora->status_iucn_id = $col[6] == '-' ? 5 : Status::where('name', $col[6])->first()->id;
                 $flora->status_cites_id = $col[7] == '-' ? 1 : Status::where('name', strtoupper($col[7]))->first()->id;

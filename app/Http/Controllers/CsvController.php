@@ -62,10 +62,10 @@ class CsvController extends Controller
                     $kategories[$row[3]] = $f;
                 }
                 if($row[6] == '-'){
-                    $row[6] = 'Tidak Diketahui';
+                    $row[6] = 'Unknown';
                 }
                 if($row[7] == '-'){
-                    $row[7] = 'Tidak Diketahui';
+                    $row[7] = 'Unknown';
                 }
                 if(!isset($status->iucn[$row[6]])){
                     $f = Status::where('type','iucn')->where('name',$row[6])->first();

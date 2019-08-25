@@ -15,23 +15,12 @@
     </b-jumbotron>
     <b-container>
       <b-row>
-        <b-col md="6">
+        <b-col md="6" offset-md="3" class="text-center">
           <h3 class="display-5">
             <i class="fa fa-info"></i> About this Project
           </h3>
           <hr />
           <p><b>Database Flora Desa Gondang</b> dibuat dalam rangka penyelenggaraan Progja Klasifikasi dan Identifikasi Flora & Fauna di desa Gondang, Kecamatan Limbangan, Kabupaten Kendal, Provinsi Jawa Tengah, Indonesia.</p>
-        </b-col>
-        <b-col md="6">
-          <h3 class="display-5">
-            <i class="fa fa-database"></i> About Data
-          </h3>
-          <hr />
-          <ul>
-            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-            <li>Aliquam tincidunt mauris eu risus.</li>
-            <li>Vestibulum auctor dapibus neque.</li>
-          </ul>
         </b-col>
       </b-row>
     </b-container>

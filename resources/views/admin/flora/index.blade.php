@@ -153,6 +153,14 @@ $(document).ready(function(){
             
             
         }
+
+        for (let i = 0; i < data.alt_text.length; i++) {
+            const element = data.alt_text[i];
+            if(element !== null){
+                var el = $("#container-image-" + (i));
+                $(el.find('#alt-text')).val(element);
+            }
+        }
         if(data.status_uu_id){
             $($("#modal-store-data").find('#status_uu_id_ya')).prop("checked",true);
         }else{

@@ -27,10 +27,17 @@
                     <img preview-title-enable="true"
                           preview-nav-enable="true" 
                           v-preview="image" 
+                          data-name="MySlideName"
+                          :text="wkwkwland"
                           :key="index" 
                           :src="image" 
                           class="img" 
                           style="width:100%!important" />
+                    <template v-if="results.alt_text[index] !== null">
+                      <div class="alt-text d-flex justify-content-center">
+                        <span class="text">{{results.alt_text[index]}}</span>
+                      </div>
+                    </template>
                 </slide>
                 
                 </template>
@@ -120,6 +127,27 @@
     </b-row>
   </b-container>
 </template>
+
+<style scoped>
+.alt-text {
+  position: absolute;
+  bottom: 10px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+.alt-text .text{
+  background: rgba(44, 44, 44, 0.637);
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+.alt-text .text:hover{
+  background: rgba(0, 0, 0, 0.637);
+}
+</style>
 
 <script>
 import { Carousel, Slide } from 'vue-carousel';

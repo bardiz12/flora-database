@@ -83,7 +83,7 @@
                                               <img src="{{asset('assets/images/no_picture.png')}}" class="img img-thumbnail" alt="" data-is-default="true">
                                           </div>
                                           <div class="input-group">
-                                              <input type="text" name="alt_text[]" class="form-control alt-text-input mb-2" placeholder="Deskripsi Gambar">
+                                              <input type="text" name="alt_text[]" class="form-control alt-text-input mb-2" id="alt-text" placeholder="Deskripsi Gambar">
                                               
                                             </div>
                                           <div class="input-group d-block">

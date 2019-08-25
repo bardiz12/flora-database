@@ -165,7 +165,7 @@ class FrontDataController extends Controller
                 'html' => implode("<br/>", $validator->errors()->all()),
             ]], 200);
         }else{
-            $data = Flora::where('locale_name','like',"%{$request->input('q')}%")->orWhere('scientific_name','like',"%{$request->input('page')}%")->paginate($per_page);
+            $data = Flora::where('locale_name','like',"%{$request->input('q')}%")->orWhere('scientific_name','like',"%{$request->input('q')}%")->paginate($per_page);
             $data->getCollection()->transform(function(Flora $f){
                 $r = (Object) [];
                 $r->id = $f->id;

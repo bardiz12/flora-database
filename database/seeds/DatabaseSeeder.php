@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            /*seedTableFamily::class,
+            seedTableFamily::class,
             seedTableKategori::class,
             seedTableStatus::class,
-            seedTableFlora::class,*/
+            seedTableFlora::class,
             seedTableUser::class
             ]);
     }

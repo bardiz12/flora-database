@@ -17,10 +17,12 @@ class Flora extends Model
         'status_uu_id',
         'status_iucn_id',  
         'status_cites_id',
+        'alt_text'
     ];
 
     protected $casts = [
         'images' => 'array',
+        'alt_text' => 'array'
     ];
 
     public function family()
