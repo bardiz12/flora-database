@@ -22,6 +22,9 @@
           <b-nav-item v-bind:active="$route.name === 'browse' || $route.name === 'browse_taxa' || $route.name === 'browse_flora'" to="/browse" right>
             <i class="fa fa-search"></i> Browse Data
           </b-nav-item>
+          <b-nav-item v-bind:active="$route.name === 'search'" to="/search" right>
+            <i class="fa fa-search"></i> Search
+          </b-nav-item>
           <!--<b-nav-item v-bind:active="tab === 2" v-on:click="tab = 2" to="/about" right>About</b-nav-item>-->
         </b-navbar-nav>
       </div>

@@ -4,7 +4,7 @@
         <div class="pembatas"></div>
         <Navbar/>
         <main role="main" class="content-nya">
-            <router-view :key="($route.fullPath.split('#')[0])"></router-view>
+            <router-view :key="($route.fullPath.split('#')[0]).split('?')[0]"></router-view>
         </main>
         <lg-preview></lg-preview>
         <Footer />
@@ -34,6 +34,7 @@
     min-height: 700px;
 }
 </style>
+
 
 
 

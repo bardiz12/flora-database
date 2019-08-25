@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Model\Family;
 use App\Model\Flora;
+use App\Model\Family;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class FrontDataController extends Controller
@@ -151,8 +152,39 @@ class FrontDataController extends Controller
     }
 
     public function search(Request $request){
+        $per_page = 5;
         $validator = Validator::make($request->all(),[
-            'q'=>'required|string'
+            'q'=>'required|string',
+            'page'=>'sometimes|integer'
         ]);
+
+        if($validator->fails()){
+            return response()->json(['is_ok' => false, 'msg' => [
+                'type' => 'error',
+                'title' => 'Oops..',
+                'html' => implode("<br/>", $validator->errors()->all()),
+            ]], 200);
+        }else{
+            $data = Flora::where('locale_name','like',"%{$request->input('q')}%")->orWhere('scientific_name','like',"%{$request->input('page')}%")->paginate($per_page);
+            $data->getCollection()->transform(function(Flora $f){
+                $r = (Object) [];
+                $r->id = $f->id;
+                $r->locale_name = $f->locale_name;
+                $r->scientific_name = $f->scientific_name;
+                $r->kategori = $f->kategori->name;
+                $r->endemik = $f->endemik;
+                $r->images = $f->images;
+                $r->family = $f->family->name;
+                $r->status = (Object) [
+                    'uu' => $f->status_uu_id ? 'Dilindungi' : 'Tidak dilindungi',
+                    'iucn' => $f->statusIucn->name,
+                    'cites' => $f->statusIucn->cites
+                ];
+                return $r;
+            });
+            return $data;
+            
+
+        }
     }
 }

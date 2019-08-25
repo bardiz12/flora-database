@@ -22,13 +22,14 @@
     </div>
     <hr />
     <b-row v-if="results == false">
-        <b-col class="text-center">
-          <h1 class="display-3"><i class="fa fa-spinner fa-spin d-block"></i>
-            Loading
-              
-          </h1>
-          <h3 class="display-5">Try Refreshing this page if it takes time too long.</h3>
-        </b-col>
+      <b-col class="text-center">
+        <h1 class="display-3">
+          <i class="fa fa-spinner fa-spin d-block"></i>
+
+          Loading
+        </h1>
+        <h3 class="display-5">Try Refreshing this page if it takes time too long.</h3>
+      </b-col>
     </b-row>
     <b-row v-else-if="results !== null">
       <b-col v-for="result in results" v-bind:key="result.id">
@@ -38,7 +39,9 @@
               <h2 class="display-5 text-uppercase">{{alpha.alphabet}}</h2>
               <ul class="pl-4 list-anu">
                 <li v-for="item in alpha.data" v-bind:key="item.id">
-                  <router-link :to="'/browse/' + $route.params.name + '/' + item.scientific_name">{{ item.scientific_name }}</router-link>
+                  <router-link
+                    :to="'/browse/' + $route.params.name + '/' + item.scientific_name"
+                  >{{ item.scientific_name }}</router-link>
                 </li>
               </ul>
             </div>
@@ -60,20 +63,57 @@ const url = window.api_url + "/family/";
 
 export default {
   data: () => {
-    return { results: false };
+    return { results: false , search:""};
   },
   methods: {
     readData() {
       axios.get(url + this.$route.params.name).then(response => {
         this.results = response.data.is_ok ? response.data.result : null;
       });
+    },
+    chunkArray: (myArray, chunk_size) => {
+      var index = 0;
+      var arrayLength = myArray.length;
+      var tempArray = [];
+
+      for (index = 0; index < arrayLength; index += chunk_size) {
+        var myChunk = myArray.slice(index, index + chunk_size);
+        // Do something if you want with the group
+        tempArray.push(myChunk);
+      }
+
+      return tempArray;
+    },
+    initData() {
+      for (var part_ke in this.results) {
+        for (var data_ke in this.results[part_ke].data) {
+          this.results[part_ke].data[data_ke].showed = true;
+          for (var flora_ke in this.results[part_ke].data[data_ke].data) {
+            this.results[part_ke].data[data_ke].data[flora_ke].showed = true;
+          }
+        }
+      }
+    },
+    orderByName: data => {
+      for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data.length - i; j++) {
+          if (data[i].alphabet.charCodeAt(0) < data[j].alphabet.charCodeAt(0)) {
+            var tmp = data[j];
+            data[j] = data[i];
+            data[i] = tmp;
+          }
+        }
+      }
+      return data;
     }
   },
   mounted() {
     this.readData();
   },
-  created(){
-    document.title += this.$route.params.name
+  created() {
+    document.title += this.$route.params.name;
+  },watch: {
+    
   }
 };
 </script>

@@ -82,6 +82,10 @@
                                           <div id="holder-{{$i}}" class="mt-5 mb-1 holders" style="max-height:100px;">
                                               <img src="{{asset('assets/images/no_picture.png')}}" class="img img-thumbnail" alt="" data-is-default="true">
                                           </div>
+                                          <div class="input-group">
+                                              <input type="text" name="alt_text[]" class="form-control alt-text-input mb-2" placeholder="Deskripsi Gambar">
+                                              
+                                            </div>
                                           <div class="input-group d-block">
                                               <span class="input-group-btn text-center">
                                                   <div class="btn-group" role="group" aria-label="Basic example">
@@ -95,6 +99,7 @@
                                               </span>
                                               <input id="thumbnail-{{$i}}" type="hidden" name="images[]">
                                           </div>
+                                          
                                   </div>
                               </div>
                           @endfor

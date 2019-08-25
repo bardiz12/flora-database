@@ -6,6 +6,10 @@
     padding-top:20px;
     padding-bottom: 20px;
 }
+.alt-text-input{
+    border-radius: 0px;
+    margin-bottom: 2px;
+}
 </style>
 @include('plugins.lfm-image')
 @include('admin.flora.modal.store')

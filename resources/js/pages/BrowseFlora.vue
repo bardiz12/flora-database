@@ -7,6 +7,7 @@
     <Breadcrumb
       :items="[{text:'Families',to:{name:'browse'}},{text:$route.params.name,to:'/browse/'+$route.params.name},{text:$route.params.scientific_name,active:true}]"
     ></Breadcrumb>
+    
 
     <b-row v-if="results == false">
         <b-col class="text-center">
@@ -153,6 +154,7 @@ export default {
   },
   mounted() {
     this.readData();
+    this.initData();
   },created(){
     document.title += this.$route.params.scientific_name + " ("+this.$route.params.name+" Family)"
   }

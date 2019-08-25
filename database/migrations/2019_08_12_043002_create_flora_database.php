@@ -18,6 +18,7 @@ class CreateFloraDatabase extends Migration
             $table->integer('family_id');
             $table->string('locale_name');
             $table->longtext('images')->nullable();
+            $table->longtext('alt')->nullable();
             $table->string('scientific_name')->nullable();
             $table->integer('kategori_id')->nullable();
             $table->string('endemik')->nullable();

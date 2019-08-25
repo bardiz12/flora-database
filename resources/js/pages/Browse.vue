@@ -52,7 +52,7 @@
                     <strong>
                       <template v-for="(huruf,index) in item.name">
                         <font v-bind:key="index">
-                          <font v-if="search.length !== 0 && item.name.indexOf(search) >= 0 && index >= item.name.indexOf(search) && index <= item.name.indexOf(search) + search.length -1">
+                          <font v-if="search.length !==  0 && item.name.toLowerCase().indexOf(search.toLowerCase()) >= 0 && index >= item.name.toLowerCase().indexOf(search.toLowerCase()) && index <= item.name.toLowerCase().indexOf(search.toLowerCase()) + search.length -1">
                             <font class="searched-term">{{huruf}}</font>
                           </font>
                           <font v-else>
@@ -90,6 +90,7 @@ export default {
       last: Math.floor(Date.now() / 1000),
       titiks: ["."],
       search: "",
+      is_zero:false,
       anu: null
     };
   },

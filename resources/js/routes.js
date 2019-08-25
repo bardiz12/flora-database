@@ -6,6 +6,7 @@ import About from '@/js/components/About';
 import Browse from '@/js/pages/Browse';
 import BrowseTaxa from '@/js/pages/BrowseTaxa';
 import BrowseFlora from '@/js/pages/BrowseFlora';
+import Search from '@/js/pages/Search';
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,12 @@ const router = new VueRouter({
             name: 'browse_flora',
             component: BrowseFlora,
             meta: { title: SITE_TITLE + ' - ' }
+        },
+        {
+            path: '/search',
+            name: 'search',
+            component: Search,
+            meta: { title: SITE_TITLE + ' - Search ' }
         }
     ]
 });

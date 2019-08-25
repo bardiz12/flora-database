@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('families', 'FrontDataController@families');
 Route::get('family/{name}','FrontDataController@floraByFamily');
 Route::get('family/{family_name}/flora/{scientific_name}','FrontDataController@flora');
+Route::post('search','FrontDataController@search');
