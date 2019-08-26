@@ -2,7 +2,7 @@
   <b-container>
     <div class="mt-1"></div>
     <div class="pt-5 mt-5">
-      <h2 class="display-4 text-center">Search something?</h2>
+      <h2 class="display-4 text-center">Search Flora</h2>
       <hr />
       <b-row>
         <b-col md="8" offset-md="2" class="search-container">
@@ -175,7 +175,7 @@ export default {
       this.timer = setInterval(()=>{
         this.readData();
         clearInterval(this.timer);
-      },1000);
+      },500);
     }
   },
   mounted() {
@@ -194,9 +194,8 @@ export default {
   },
   watch: {
     search: function(val) {
-      
         if(!this.firstLoad){
-            if(val !== ""){
+            if(val !== "" && val !== this.$route.query.q){
             this.$router.replace({
               name: "search",
               query: {
@@ -208,7 +207,6 @@ export default {
           }else{
             this.msg = "";
           }
-          
         }
     },
     page: function(val){

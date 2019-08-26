@@ -2,6 +2,8 @@
 /public/hot
 !/storage/app/public/sistem/flora-format.csv
 /public/storage
+/public/css/app.css
+/public/js/app.js
 /storage/*.key
 /vendor
 .env
