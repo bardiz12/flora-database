@@ -11,7 +11,7 @@
             type="text"
             class="form-control search-bar big-search-bar"
             v-model="search"
-            placeholder="search something..."
+            placeholder="search something..." debounce="560"
           />
 
           <a class="btn-search">
@@ -203,7 +203,7 @@ export default {
                 page: this.page
               }
             });
-            this.searchDelay3Second();
+            this.readData();
           }else{
             this.msg = "";
           }

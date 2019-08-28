@@ -147,18 +147,17 @@ $(document).ready(function(){
                 }
                 var thumb = array.join("/");
                 el.find('.holders').first().html('<img src="'+ (thumb) +'" class="img img-thumbnail" style="height:80px;width:80px" alt="" data-is-default="true">');
-                el.find('input').first().val(element);
+                el.find('input.img-hidden-anu').first().val(element);
                 el.find('button').prop('disabled',false);
             }
             
             
         }
-
         for (let i = 0; i < data.alt_text.length; i++) {
-            const element = data.alt_text[i];
-            if(element !== null){
+            if(data.alt_text[i] !== null){
                 var el = $("#container-image-" + (i));
-                $(el.find('#alt-text')).val(element);
+                $(el.find('#alt-text')).val(data.alt_text[i]);
+                console.log(data.alt_text[i]);
             }
         }
         if(data.status_uu_id){

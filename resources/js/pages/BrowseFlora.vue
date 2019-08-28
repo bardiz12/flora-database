@@ -28,7 +28,7 @@
                           preview-nav-enable="true" 
                           v-preview="image" 
                           data-name="MySlideName"
-                          :text="wkwkwland"
+                          text="wkwkwland"
                           :key="index" 
                           :src="image" 
                           class="img" 
@@ -130,8 +130,8 @@
 
 <style scoped>
 .alt-text {
-  position: absolute;
-  bottom: 10px;
+  position: relative;
+  bottom: 40px;
   left: 0; 
   right: 0; 
   margin-left: auto; 
@@ -182,7 +182,7 @@ export default {
   },
   mounted() {
     this.readData();
-    this.initData();
+    //this.initData();
   },created(){
     document.title += this.$route.params.scientific_name + " ("+this.$route.params.name+" Family)"
   }

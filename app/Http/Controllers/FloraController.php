@@ -42,7 +42,8 @@ status_cites_id: null*/
             'endemik'=>'string',
             'status_uu_id'=>'boolean|required',
             'status_iucn_id'=>'integer|required|exists:status,id',
-            'status_cites_id'=>'integer|required|exists:status,id'
+            'status_cites_id'=>'integer|required|exists:status,id',
+            'alt_text'=>'required|array|size:5'
         ]);
 
         if($validator->fails()){

@@ -97,7 +97,7 @@
                                                           </div>
                                                   
                                               </span>
-                                              <input id="thumbnail-{{$i}}" type="hidden" name="images[]">
+                                              <input id="thumbnail-{{$i}}" class="img-hidden-anu" type="hidden" name="images[]">
                                           </div>
                                           
                                   </div>
