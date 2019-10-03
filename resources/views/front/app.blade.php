@@ -67,6 +67,6 @@
         <script>
         window.api_url ='{{url('')}}/api';
         </script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
